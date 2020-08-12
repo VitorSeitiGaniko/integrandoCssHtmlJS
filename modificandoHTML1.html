@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <script>
+        const body = document.querySelector('body')
+
+        //Criando uma div no html
+        const div1= document.createElement('div')
+
+        //Adicionando um estilo que ja se encontra no arquivo css
+        div1.classList.add('destaque')
+
+        //Adicionando um conteudo na pagina
+        div1.innerHTML = 'Primeiro'
+
+        const div2 = document.createElement('div')
+        
+        //Dando um atributo personalizado para essa div
+        div2.setAttribute('wm-atributo', 'valor')
+       
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p')
+        p.innerHTML = 'terceiro'
+
+        const div3 = document.createElement('div')
+        //Adicionando o p dentro de 'div3', ou seja, Definindo que o pai do 'p' é a div 3
+        div3.appendChild(p)
+
+
+        body.appendChild(div1)
+        body.appendChild(div2)
+        body.appendChild(div3)
+
+
+        const texto = document.createTextNode('antes...')
+
+        /*Elemento pai .insertBefore, passando como parametro o filho q deseja add e em q 
+        ordem deseja, nesse caso antes de todos os outros filhos*/
+        div3.insertBefore(texto, div3.childNodes[0])
+
+        //Com o 'true' ele vai clonar até os filhos, com 'false' não copia os filhos
+        const clone = div3.cloneNode(true)
+        
+        body.appendChild(clone)
+
+        body.removeChild(div2)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!--onclick = "navegar(event)"-->
+        <a  espera7seg  href="https://google.com.br" >Google</a>
+    </div>
+    <script>
+        function navegar(e){
+
+            //Previne q o comportamento padrão ocorra, ou seja, evita q ele entre no link instataneamente
+            e.preventDefault()
+            console.log('saindo em 7 seg')
+           
+            setTimeout(() => {
+                const link = e.target
+                window.location.href =link.href
+            }, 7000)
+        }
+
+       // const a = document.querySelector('a')
+       // a.onclick = navegar
+
+
+        //Por meio de propriedade personalizada
+        const a = document.querySelector('[espera7seg]')
+        a.onclick = navegar
+
+    </script>
+</body>
